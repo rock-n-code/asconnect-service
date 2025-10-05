@@ -1,26 +1,56 @@
-// swift-tools-version: 6.2
-// The swift-tools-version declares the minimum version of Swift required to build this package.
+// swift-tools-version: 5.10
+
+//===----------------------------------------------------------------------===
+//
+// This source file is part of the ASConnectService open source project
+//
+// Copyright (c) 2025 Röck+Cöde VoF. and the ASConnectService project authors
+// Licensed under the EUPL 1.2 or later.
+//
+// See LICENSE for license information
+// See CONTRIBUTORS for the list of ASConnectService project authors
+//
+//===----------------------------------------------------------------------===
 
 import PackageDescription
 
 let package = Package(
-    name: "asconnect-service",
+    name: AppStoreConnectService.package,
+    platforms: [
+        .iOS(.v13),
+        .macOS(.v10_15),
+        .tvOS(.v13),
+        .visionOS(.v1),
+        .watchOS(.v6)
+    ],
     products: [
-        // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
-            name: "asconnect-service",
-            targets: ["asconnect-service"]
+            name: AppStoreConnectService.package,
+            targets: [AppStoreConnectService.target]
         ),
     ],
+    dependencies: [
+        .package(url: "https://github.com/swiftlang/swift-docc-plugin", from: "1.1.0")
+    ],
     targets: [
-        // Targets are the basic building blocks of a package, defining a module or a test suite.
-        // Targets can depend on other targets in this package and products from dependencies.
         .target(
-            name: "asconnect-service"
+            name: AppStoreConnectService.target,
+            path: "Sources/ASConnectService"
         ),
         .testTarget(
-            name: "asconnect-serviceTests",
-            dependencies: ["asconnect-service"]
+            name: AppStoreConnectService.test,
+            dependencies: [
+                .byName(name: AppStoreConnectService.target)
+            ],
+            path: "Tests/ASConnectService"
         ),
     ]
 )
+
+// MARK: - Constants
+
+enum AppStoreConnectService {
+    static let package = "asconnect-service"
+    static let target = "ASConnectService"
+    static let test = "\(AppStoreConnectService.target)Tests"
+}
