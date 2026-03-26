@@ -4,7 +4,7 @@
 //
 // This source file is part of the ASConnectService open source project
 //
-// Copyright (c) 2025 Röck+Cöde VoF. and the ASConnectService project authors
+// Copyright (c) 2026 Röck+Cöde VoF. and the ASConnectService project authors
 // Licensed under the EUPL 1.2 or later.
 //
 // See LICENSE for license information
@@ -30,7 +30,7 @@ let package = Package(
         ),
     ],
     dependencies: [
-        .package(url: "https://github.com/apple/swift-openapi-generator.git", from: "1.3.0"),
+        .package(url: "https://github.com/apple/swift-openapi-generator.git", exact: "1.11.0"),
         .package(url: "https://github.com/apple/swift-openapi-runtime", from: "1.5.0"),
         .package(url: "https://github.com/apple/swift-openapi-urlsession", from: "1.0.2"),
         .package(url: "https://github.com/swiftlang/swift-docc-plugin", from: "1.1.0")

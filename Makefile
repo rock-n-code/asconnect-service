@@ -2,7 +2,7 @@
 ## 
 ## This source file is part of the App Store Connect Service open source project
 ## 
-## Copyright (c) 2025 Röck+Cöde VoF. and the App Store Connect Service project authors
+## Copyright (c) 2026 Röck+Cöde VoF. and the App Store Connect Service project authors
 ## Licensed under Apache license v2.0
 ## 
 ## See LICENSE for license information
@@ -85,6 +85,17 @@ doc-preview: ## Previews the library documentation in Safari
 		--target $(SPM_LIBRARY_TARGET) \
 		--include-extended-types \
 		--enable-inherited-docs
+
+# OPEN API SPECIFICATION
+
+oas-download: ## Downloads the latest App Store Connect OpenAPI specification document
+	@mkdir -p $(OAS_DOWNLOAD_FOLDER)
+	@curl -fsSL \
+		"$(OAS_DOWNLOAD_URL)" \
+		-o "$(OAS_DOWNLOAD_INPUT)"
+	@unzip -q "$(OAS_DOWNLOAD_INPUT)" -d "$(OAS_DOWNLOAD_FOLDER)"
+	@mv "$(OAS_DOWNLOAD_FILE)" "$(OAS_DOWNLOAD_OUTPUT)"
+	@rm -rf "$(OAS_DOWNLOAD_FOLDER)"
 
 # IDE
 

@@ -2,7 +2,7 @@
 ## 
 ## This source file is part of the App Store Connect Service open source project
 ## 
-## Copyright (c) 2025 Röck+Cöde VoF. and the App Store Connect Service project authors
+## Copyright (c) 2026 Röck+Cöde VoF. and the App Store Connect Service project authors
 ## Licensed under Apache license v2.0
 ## 
 ## See LICENSE for license information
@@ -15,5 +15,5 @@
 generate:
     - types
     - client
-namingStrategy: defensive
+namingStrategy: idiomatic
 accessModifier: public
